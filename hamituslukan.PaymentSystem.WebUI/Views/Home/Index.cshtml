@@ -1,0 +1,39 @@
+﻿<div class="row mt-4">
+    <div class="offset-1 col-9">
+        <div class="card">
+            <div class="card-header">
+                User
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Unpaid Invoices</h5>
+                                <p class="card-text">Click button to go to unpaid invoices.</p>
+                                <a asp-controller="Home" asp-action="Invoices" class="btn btn-primary">Unpaid Invoices</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Paid Invoices</h5>
+                                <p class="card-text">Click button to go to paid invoices.</p>
+                                <a asp-controller="Home" asp-action="Timeline" class="btn btn-secondary">Paid Invoices</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @if (TempData.Peek("Message") != null)
+                {
+                    <div class="row mt-3">
+                        <div class="col">
+                            <div class="alert alert-warning">@TempData["Message"]</div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

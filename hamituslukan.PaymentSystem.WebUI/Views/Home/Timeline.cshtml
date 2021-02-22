@@ -1,0 +1,96 @@
+﻿@model SubscriberViewModel
+
+<div class="row mt-4">
+    <div class="offset-1 col-9">
+        <div class="card">
+            <div class="card-header">
+                Subscriber
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-3"><h6>Abone Adı</h6></div>
+                            <div class="col-9 text-secondary">@Model.User.Name</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><h6>Abone Türü</h6></div>
+                            <div class="col-9 text-secondary">@Model.Type.Name</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><h6>Abone Numarası</h6></div>
+                            <div class="col-9 text-secondary">@Model.IdentityNumber</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><h6>Abonelik Başlangıç Tarihi</h6></div>
+                            <div class="col-9 text-secondary">@Model.BeginDate</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><h6>Abonelik Durumu</h6></div>
+                            <div class="col-9 text-secondary"><span class="badge bg-dark">@(Model.EndDate == null ? "Aktif" : $"Pasif ({ Model.EndDate })")</span></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><h6>Alınan Depozito</h6></div>
+                            <div class="col-9 text-secondary">@Model.Deposit.Amount</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><h6>Depozito Alınma Tarihi</h6></div>
+                            <div class="col-9 text-secondary">@Model.Deposit.ReceiveDate</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3"><h6>Depozito Geri Ödeme Tarihi</h6></div>
+                            <div class="col-9 text-secondary">@Model.Deposit.ReturnDate</div>
+                        </div>
+                        @if (TempData.Peek("Message") != null)
+                        {
+                            <div class="row mt-3">
+                                <div class="offset-3 col-9">
+                                    <div class="alert alert-info">@TempData["Message"]</div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mt-3">
+            <div class="card-header">Invoices</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Due Date</th>
+                                    <th>Amount</th>
+                                    <th>Paid Date</th>
+                                </tr>
+                            </thead>
+                            @if (Model.Invoices.Count > 0)
+                            {
+                                @foreach (var invoice in Model.Invoices.Where(x => x.PaidDate != null).ToList())
+                                {
+                                    <tr>
+                                        <td>@invoice.StartDate</td>
+                                        <td>@invoice.EndDate</td>
+                                        <td>@invoice.DueDate</td>
+                                        <td>@invoice.Amount</td>
+                                        <td><span class="badge bg-info">Ödendi @invoice.PaidDate</span></td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="5" class="text-center">Invoice not found</td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

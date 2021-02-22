@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment System</title>
+    <link rel="stylesheet" href="~/node_modules/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1">Payment System</span>
+            <form class="d-flex" asp-action="Logout" asp-controller="Account" method="post">
+                <button class="btn btn-outline-primary" type="submit">Logout</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <script src="~/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\hamituslukan.PaymentSystem.Data\hamituslukan.PaymentSystem.Data.csproj" />
+    <ProjectReference Include="..\hamituslukan.PaymentSystem.Dto\hamituslukan.PaymentSystem.Dto.csproj" />
+    <ProjectReference Include="..\hamituslukan.PaymentSystem.Entities\hamituslukan.PaymentSystem.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="9.5.1" />
+  </ItemGroup>
+
+</Project>

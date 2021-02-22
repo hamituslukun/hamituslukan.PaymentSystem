@@ -1,0 +1,48 @@
+﻿@model SearchSubscriberViewModel
+
+<div class="row mt-4">
+    <div class="offset-1 col-9">
+        <div class="card">
+            <div class="card-header">
+                Administrator
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Create Subscriber</h5>
+                                <p class="card-text">Click button to create a new subscriber.</p>
+                                <a asp-controller="Admin" asp-action="CreateSubscriber" class="btn btn-primary">Create</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Search Subscriber</h5>
+                                <p class="card-text">Query subscriber with identity number.</p>
+                                <form asp-action="Subscriber" asp-controller="Admin" method="get" class="row g-2">
+                                    <div class="col-auto">
+                                        <input type="text" class="form-control" placeholder="Identity Number" name="IdentityNumber" value="" />
+                                    </div>
+                                    <div class="col-auto">
+                                        <button type="submit" class="btn btn-primary">Search</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @if (TempData.Peek("Message") != null)
+                {
+                    <div class="row mt-3">
+                        <div class="col">
+                            <div class="alert alert-warning">@TempData["Message"]</div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

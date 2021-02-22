@@ -1,0 +1,39 @@
+﻿@{ Layout = "_AuthLayout"; }
+@model UserLoginViewModel
+
+<div class="row mt-4">
+    <div class="offset-1 col-9">
+        <div class="card">
+            <div class="card-header">
+                Login
+            </div>
+            <div class="card-body">
+                <form asp-action="Login" asp-controller="Account" method="post">
+                    <div class="mb-3 row">
+                        <label class="col-2 col-form-label">Email</label>
+                        <div class="col-10">
+                            <input type="text" class="form-control @(ViewContext.ModelState.ContainsKey("Email") ? "is-invalid" : "")" asp-for="Email" value="admin@admin.com">
+                            <span asp-validation-for="Email" class="invalid-feedback"></span>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-2 col-form-label">Password</label>
+                        <div class="col-10">
+                            <input type="password" class="form-control" asp-for="Password" value="admin">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="offset-2 col-4 d-grid">
+                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="offset-2">
+                            <a asp-action="Register" asp-controller="Account">Register</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

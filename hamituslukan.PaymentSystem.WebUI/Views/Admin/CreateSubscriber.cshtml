@@ -1,0 +1,63 @@
+﻿@model CreateSubscriberViewModel
+
+<div class="row mt-4">
+    <div class="offset-1 col-9">
+        <div class="card">
+            <div class="card-header">
+                Create Subscriber
+            </div>
+            <div class="card-body">
+                <form asp-controller="Admin" asp-action="CreateSubscriber" method="post">
+                    <div class="row row-cols-auto g-3 mb-3">
+                        <div class="col-4">
+                            <label class="col-form-label">Subscriber Type</label>
+                            <select class="form-select" asp-for="Type.Id" asp-items="@(new SelectList(ViewBag.SubscriberTypes, "Id", "Name"))"></select>
+                        </div>
+                        <div class="col-4">
+                            <label class="col-form-label">Identity Number</label>
+                            <input type="text" asp-for="IdentityNumber" class="form-control" />
+                        </div>
+                        <div class="col-4">
+                            <label class="col-form-label">Begin Date</label>
+                            <input type="date" asp-for="BeginDate" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="row row-cols-auto g-3 mb-3">
+                        <div class="col-4">
+                            <label class="col-form-label">Deposit Amount</label>
+                            <input type="text" asp-for="Deposit.Amount" class="form-control" />
+                        </div>
+                        <div class="col-4">
+                            <label class="col-form-label">Deposit Date</label>
+                            <input type="date" asp-for="Deposit.ReceiveDate" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="row row-cols-auto g-3 mb-3">
+                        <div class="col-4">
+                            <label class="col-form-label">User Name</label>
+                            <input type="text" asp-for="User.Name" class="form-control" />
+                        </div>
+                        <div class="col-4">
+                            <label class="col-form-label">Email</label>
+                            <input type="text" asp-for="User.Email" class="form-control" />
+                        </div>
+                        <div class="col-4">
+                            <label class="col-form-label">Password</label>
+                            <input type="password" asp-for="User.Password" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                    </div>
+                    <div class="row row-cols-auto g-3">
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
