@@ -3,6 +3,7 @@ using hamituslukan.PaymentSystem.WebUI.Builders.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace hamituslukan.PaymentSystem.WebUI.CustomFilters
 {
@@ -20,9 +22,11 @@ namespace hamituslukan.PaymentSystem.WebUI.CustomFilters
 
         public override void OnActionExecuting(ActionExecutingContext context)
         {
+            var _configuration = context.HttpContext.RequestServices.GetService<IConfiguration>();
+
             if (JwtAuthorizeHelper.CheckToken(context, out string token))
             {
-                var response = JwtAuthorizeHelper.GetActiveUser(token);
+                var response = JwtAuthorizeHelper.GetActiveUser(_configuration, token);
 
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
@@ -56,11 +60,11 @@ namespace hamituslukan.PaymentSystem.WebUI.CustomFilters
             return false;
         }
 
-        public static HttpResponseMessage GetActiveUser(string token)
+        public static HttpResponseMessage GetActiveUser(IConfiguration _configuration, string token)
         {
             using var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            return httpClient.GetAsync("https://localhost:44338/api/Auth/CurrentUser").Result;
+            return httpClient.GetAsync($"{ _configuration.GetValue<string>("Api") }/Auth/CurrentUser").Result;
         }
 
         public static ApplicationUserDto GetActiveUser(HttpResponseMessage responseMessage)
