@@ -51,7 +51,7 @@ namespace hamituslukan.PaymentSystem.WebUI.Controllers
 
             if (responseMessage.IsSuccessStatusCode)
             {
-                return Redirect($"Subscriber/{ model.IdentityNumber }");
+                return Redirect($"Subscriber?IdentityNumber={ model.IdentityNumber }");
             }
             else
             {

@@ -60,7 +60,7 @@ namespace hamituslukan.PaymentSystem.WebUI.CustomFilters
         {
             using var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-            return httpClient.GetAsync("http://localhost:64561/api/Auth/CurrentUser").Result;
+            return httpClient.GetAsync("https://localhost:44338/api/Auth/CurrentUser").Result;
         }
 
         public static ApplicationUserDto GetActiveUser(HttpResponseMessage responseMessage)

@@ -82,7 +82,7 @@ namespace hamituslukan.PaymentSystem.WebAPI.Controllers
                 for (int i = 0; i < 12; i++)
                 {
                     var invoice = new Invoice();
-                    invoice.StartDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(i);
+                    invoice.StartDate = new DateTime(DateTime.Now.Year, 1, 1).AddMonths(i);
                     invoice.EndDate = invoice.StartDate.AddDays(DateTime.DaysInMonth(invoice.StartDate.Year, invoice.StartDate.Month) - 1);
                     invoice.DueDate = invoice.EndDate.AddDays(10);
                     invoice.Amount = 500;
@@ -116,6 +116,7 @@ namespace hamituslukan.PaymentSystem.WebAPI.Controllers
         }
 
         [Authorize(Roles = "User")]
+        [HttpGet]
         public async Task<IActionResult> GetByCurrentUser()
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);

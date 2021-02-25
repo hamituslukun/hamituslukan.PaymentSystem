@@ -10,7 +10,7 @@ using hamituslukan.PaymentSystem.Data.Concrete;
 namespace hamituslukan.PaymentSystem.Data.Migrations
 {
     [DbContext(typeof(PaymentSystemContext))]
-    [Migration("20210220235326_Initial")]
+    [Migration("20210225195515_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -108,8 +108,8 @@ namespace hamituslukan.PaymentSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "ce8e975a-0ad5-4049-b5ed-c5280530d241",
-                            RoleId = "8c639a9c-7b5f-4e41-b837-f5412bd27154"
+                            UserId = "9d2a5c1f-cc3e-46ef-8e61-2191f7cb82e4",
+                            RoleId = "21dc23d7-2466-4dcb-be95-09efdeab837e"
                         });
                 });
 
@@ -161,15 +161,15 @@ namespace hamituslukan.PaymentSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8c639a9c-7b5f-4e41-b837-f5412bd27154",
-                            ConcurrencyStamp = "5324e18f-f6ab-4da5-a0e4-71818d31804f",
+                            Id = "21dc23d7-2466-4dcb-be95-09efdeab837e",
+                            ConcurrencyStamp = "fa9b624d-af2a-4e8a-b7b0-2a0d5fa0704c",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "1ea36e88-91bf-4fc9-855a-65761649525d",
-                            ConcurrencyStamp = "c6fdfb8c-785e-4585-ba90-2656e59b3c6a",
+                            Id = "5832ee33-d47a-4c5a-b476-15775d284936",
+                            ConcurrencyStamp = "2b06a74f-d750-4484-9049-5732a1f22cd3",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -245,18 +245,18 @@ namespace hamituslukan.PaymentSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ce8e975a-0ad5-4049-b5ed-c5280530d241",
+                            Id = "9d2a5c1f-cc3e-46ef-8e61-2191f7cb82e4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "aae388ab-d013-40c4-b5e6-a5ef267437be",
+                            ConcurrencyStamp = "afd96594-0d49-4772-885c-4531d2c5ad53",
                             Email = "admin@admin.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             Name = "Administrator",
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFz2Xtd7ojJ+v2s2z+gb2F+bZo0pPYpG3UWNQTpWxGSa8cbbc9Pz/vGX2X3Wn0PQoA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEI0A/q+WGU6Px1uOFklGeHB/b1QsXD+D1HXL33Mko9YwgJb5Ii8TgFBH+21NDR3ixQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a8abe568-3679-4c95-9c22-ea9422febbcd",
+                            SecurityStamp = "012602c4-2fc9-4f10-b3a3-aa11ba29c646",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         });
@@ -363,6 +363,20 @@ namespace hamituslukan.PaymentSystem.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("SubscriberTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("9ef817fd-c7a1-4c8a-9d12-f002ab6ed7cf"),
+                            IdentityLength = 11,
+                            Name = "Bireysel Müşteri"
+                        },
+                        new
+                        {
+                            Id = new Guid("3b838828-a91f-479b-863c-cea1fff101d0"),
+                            IdentityLength = 10,
+                            Name = "Tüzel Müşteri"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

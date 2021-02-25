@@ -106,8 +106,8 @@ namespace hamituslukan.PaymentSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "c102ce0f-d00a-4c9d-89bd-1e8322ec7f0d",
-                            RoleId = "69720b4e-0421-4cde-b608-6a096e068fda"
+                            UserId = "9d2a5c1f-cc3e-46ef-8e61-2191f7cb82e4",
+                            RoleId = "21dc23d7-2466-4dcb-be95-09efdeab837e"
                         });
                 });
 
@@ -159,15 +159,15 @@ namespace hamituslukan.PaymentSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "69720b4e-0421-4cde-b608-6a096e068fda",
-                            ConcurrencyStamp = "b4247e47-a37c-4dfb-932c-32f0bebf4433",
+                            Id = "21dc23d7-2466-4dcb-be95-09efdeab837e",
+                            ConcurrencyStamp = "fa9b624d-af2a-4e8a-b7b0-2a0d5fa0704c",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "abdfecc2-9780-4876-a241-a7432dc40966",
-                            ConcurrencyStamp = "571687f2-c16f-472a-a512-8185b33fb4ac",
+                            Id = "5832ee33-d47a-4c5a-b476-15775d284936",
+                            ConcurrencyStamp = "2b06a74f-d750-4484-9049-5732a1f22cd3",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -243,18 +243,18 @@ namespace hamituslukan.PaymentSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c102ce0f-d00a-4c9d-89bd-1e8322ec7f0d",
+                            Id = "9d2a5c1f-cc3e-46ef-8e61-2191f7cb82e4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "63effaf7-f61a-4630-9595-3126d8e5ba5c",
+                            ConcurrencyStamp = "afd96594-0d49-4772-885c-4531d2c5ad53",
                             Email = "admin@admin.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             Name = "Administrator",
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEufz+b1hrt6ZqcWGeps/0/j3WY6orLOAB4QNjz46hX54MF3q4+sCkqRr2mrKugD3w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEI0A/q+WGU6Px1uOFklGeHB/b1QsXD+D1HXL33Mko9YwgJb5Ii8TgFBH+21NDR3ixQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "39459d23-2bec-47a8-bd66-ba76d65d54ab",
+                            SecurityStamp = "012602c4-2fc9-4f10-b3a3-aa11ba29c646",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         });
@@ -365,13 +365,13 @@ namespace hamituslukan.PaymentSystem.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("859a2168-07ed-419d-bd85-8df6f8a1844f"),
+                            Id = new Guid("9ef817fd-c7a1-4c8a-9d12-f002ab6ed7cf"),
                             IdentityLength = 11,
                             Name = "Bireysel Müşteri"
                         },
                         new
                         {
-                            Id = new Guid("62c3030f-7a89-4901-8164-d8cc46b42efe"),
+                            Id = new Guid("3b838828-a91f-479b-863c-cea1fff101d0"),
                             IdentityLength = 10,
                             Name = "Tüzel Müşteri"
                         });

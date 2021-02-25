@@ -24,7 +24,7 @@ namespace hamituslukan.PaymentSystem.Data.Concrete
                 .Include(x => x.Deposit)
                 .Include(x => x.Type)
                 .Include(x => x.User)
-                .Include(x => x.Invoices)
+                .Include(x => x.Invoices.Where(i => i.EndDate <= DateTime.Now && i.PaidDate == null))
                 .Where(x => x.IdentityNumber == identityNumber).FirstOrDefaultAsync();
         }
     }

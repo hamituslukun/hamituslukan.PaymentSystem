@@ -241,22 +241,30 @@ namespace hamituslukan.PaymentSystem.Data.Migrations
             migrationBuilder.InsertData(
                 table: "Role",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "8c639a9c-7b5f-4e41-b837-f5412bd27154", "5324e18f-f6ab-4da5-a0e4-71818d31804f", "Admin", "ADMIN" });
+                values: new object[,]
+                {
+                    { "21dc23d7-2466-4dcb-be95-09efdeab837e", "fa9b624d-af2a-4e8a-b7b0-2a0d5fa0704c", "Admin", "ADMIN" },
+                    { "5832ee33-d47a-4c5a-b476-15775d284936", "2b06a74f-d750-4484-9049-5732a1f22cd3", "User", "USER" }
+                });
 
             migrationBuilder.InsertData(
-                table: "Role",
-                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "1ea36e88-91bf-4fc9-855a-65761649525d", "c6fdfb8c-785e-4585-ba90-2656e59b3c6a", "User", "USER" });
+                table: "SubscriberTypes",
+                columns: new[] { "Id", "IdentityLength", "Name" },
+                values: new object[,]
+                {
+                    { new Guid("9ef817fd-c7a1-4c8a-9d12-f002ab6ed7cf"), 11, "Bireysel Müşteri" },
+                    { new Guid("3b838828-a91f-479b-863c-cea1fff101d0"), 10, "Tüzel Müşteri" }
+                });
 
             migrationBuilder.InsertData(
                 table: "User",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "ce8e975a-0ad5-4049-b5ed-c5280530d241", 0, "aae388ab-d013-40c4-b5e6-a5ef267437be", "admin@admin.com", false, false, null, "Administrator", "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEFz2Xtd7ojJ+v2s2z+gb2F+bZo0pPYpG3UWNQTpWxGSa8cbbc9Pz/vGX2X3Wn0PQoA==", null, false, "a8abe568-3679-4c95-9c22-ea9422febbcd", false, "admin@admin.com" });
+                values: new object[] { "9d2a5c1f-cc3e-46ef-8e61-2191f7cb82e4", 0, "afd96594-0d49-4772-885c-4531d2c5ad53", "admin@admin.com", false, false, null, "Administrator", "ADMIN@ADMIN.COM", "ADMIN@ADMIN.COM", "AQAAAAEAACcQAAAAEI0A/q+WGU6Px1uOFklGeHB/b1QsXD+D1HXL33Mko9YwgJb5Ii8TgFBH+21NDR3ixQ==", null, false, "012602c4-2fc9-4f10-b3a3-aa11ba29c646", false, "admin@admin.com" });
 
             migrationBuilder.InsertData(
                 table: "UserRole",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "8c639a9c-7b5f-4e41-b837-f5412bd27154", "ce8e975a-0ad5-4049-b5ed-c5280530d241" });
+                values: new object[] { "21dc23d7-2466-4dcb-be95-09efdeab837e", "9d2a5c1f-cc3e-46ef-8e61-2191f7cb82e4" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Invoices_SubscriberId",
